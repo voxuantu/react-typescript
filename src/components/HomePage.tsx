@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { ChangeEvent, useEffect, useState } from "react";
+import { Button } from "@mui/material";
 
 interface Props {
 	name: string;
@@ -13,6 +14,13 @@ interface IJoke {
 }
 
 export default function HomePage(props: Props) {
+	const [joke, setJoke] = useState<IJoke>({
+		id: 1,
+		setup: "string",
+		punchline: "string",
+		type: "string",
+	});
+
 	const [age, setAge] = useState<number>(10);
 
 	const handleChangeAge = () => {
@@ -41,6 +49,7 @@ export default function HomePage(props: Props) {
 			<p>{age / 10}</p>
 
 			<input onChange={handleOnChange} type="text" name="address" id="address" />
+			<Button>Click me</Button>
 		</div>
 	);
 }
